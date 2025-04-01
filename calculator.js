@@ -38,6 +38,79 @@ function operate(numberOne,numberTwo,operator){
     }
 }
 
-let numberOne;
+let numberOne = [];
 let numberTwo;
 let operator;
+let displayValue = document.getElementById("result");
+let result;
+
+function updateDisplay(){
+    document.getElementById("result").innerHTML = numberOne.slice(-13).join('');
+    console.log(numberOne.join(''));
+}
+
+
+
+
+document.getElementById("zero")
+        .addEventListener("click", () => { 
+            if(numberOne.length !== 0)
+                {
+                    numberOne.push(0);
+                    updateDisplay();
+                }
+});
+
+document.getElementById("one")
+        .addEventListener("click", () => { 
+            numberOne.push(1);
+            updateDisplay();
+});
+
+document.getElementById("two")
+        .addEventListener("click", () => { 
+            numberOne.push(2);
+            updateDisplay();
+});
+
+document.getElementById("three")
+        .addEventListener("click", () => { 
+            numberOne.push(3);
+            updateDisplay();
+});
+
+document.getElementById("four")
+        .addEventListener("click", () => { 
+            numberOne.push(4);
+            updateDisplay();
+});
+
+document.getElementById("five")
+        .addEventListener("click", () => { 
+            numberOne.push(5);
+            updateDisplay();
+});
+
+document.getElementById("six")
+        .addEventListener("click", () => { 
+            numberOne.push(6);
+            updateDisplay();
+});
+
+document.getElementById("seven")
+        .addEventListener("click", () => { 
+            numberOne.push(7);
+            updateDisplay();
+});
+
+document.getElementById("eight")
+        .addEventListener("click", () => { 
+            numberOne.push(8);
+            updateDisplay();
+});
+
+document.getElementById("nine")
+        .addEventListener("click", () => { 
+            numberOne.push(9);
+            updateDisplay();
+});
