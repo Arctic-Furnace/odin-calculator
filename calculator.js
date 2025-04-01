@@ -34,7 +34,13 @@ function operate(numberOne,numberTwo,operator){
     }
     else if(operator === "/")
     {
-        return divide(numberOne,numberTwo);
+        if (numberTwo == 0 )
+        {
+            return "Error";
+        }
+        else{
+            return divide(numberOne,numberTwo);
+        }
     }
 }
 
@@ -62,7 +68,11 @@ document.getElementById("period")
                 numberArray.splice(0,numberArray.length);
                 operator = "";
             }
-            numberArray.push('.');
+            if(!numberArray.includes('.'))
+            {
+                numberArray.push('.');
+            }
+            
             updateDisplay();
 });
 
@@ -260,8 +270,5 @@ document.getElementById("equals")
                 updateDisplay();
                 operator = "=";
                 console.log("Operator is " + operator);
-            }
-            else{
-
             }
 });
