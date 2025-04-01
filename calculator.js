@@ -258,6 +258,19 @@ document.getElementById("divide")
                 }
 });
 
+document.getElementById("sign")
+        .addEventListener("click", () => { 
+            if(numberArray.length !== 0)
+                {
+                    if(numberArray[0]!='-')
+                        numberArray.unshift('-');
+                    else
+                        numberArray.shift();
+                    updateDisplay();
+                    operator = "+/-";
+                }
+});
+
 document.getElementById("equals")
         .addEventListener("click", () => { 
             if(operator !== "" && operator !== "="  )
