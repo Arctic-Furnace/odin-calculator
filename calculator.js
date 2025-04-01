@@ -1,17 +1,17 @@
 function add(a,b){
-    return a + b;
+    return +a + +b;
 }
 
 function subtract(a,b){
-    return a - b;
+    return +a - +b;
 }
 
 function multiply(a,b){
-    return a * b;
+    return +a * +b;
 }
 
 function divide(a,b){
-    return a / b;
+    return +a / +b;
 }
 
 console.log("1 + 2 = " + add(1,2));
@@ -38,79 +38,230 @@ function operate(numberOne,numberTwo,operator){
     }
 }
 
-let numberOne = [];
+let numberArray = [0];
+let numberOne;
 let numberTwo;
-let operator;
+let operator = "";
 let displayValue = document.getElementById("result");
 let result;
 
 function updateDisplay(){
-    document.getElementById("result").innerHTML = numberOne.slice(-13).join('');
-    console.log(numberOne.join(''));
+    if(numberArray.length === 0){
+        document.getElementById("result").innerHTML = 0;
+    }
+    else{
+        document.getElementById("result").innerHTML = numberArray.slice(-13).join('');
+    }
+    
+    console.log("Number array is:" + numberArray.join(''));
 }
 
+document.getElementById("period")
+        .addEventListener("click", () => { 
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            numberArray.push('.');
+            updateDisplay();
+});
 
+document.getElementById("clear")
+        .addEventListener("click", () => { 
 
+            numberArray.splice(0,numberArray.length);
+            operator = "";
+            updateDisplay();
+});
 
 document.getElementById("zero")
         .addEventListener("click", () => { 
-            if(numberOne.length !== 0)
-                {
-                    numberOne.push(0);
-                    updateDisplay();
-                }
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            if(numberArray[0] === 0 && numberArray.length === 1){
+                numberArray.splice(0,numberArray.length);
+            }
+                numberArray.push(0);
+                updateDisplay();
 });
 
 document.getElementById("one")
         .addEventListener("click", () => { 
-            numberOne.push(1);
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            if(numberArray[0] === 0 && numberArray.length === 1){
+                numberArray.splice(0,numberArray.length);
+            }
+            numberArray.push(1);
             updateDisplay();
 });
 
 document.getElementById("two")
         .addEventListener("click", () => { 
-            numberOne.push(2);
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            if(numberArray[0] === 0 && numberArray.length === 1){
+                numberArray.splice(0,numberArray.length);
+            }
+            numberArray.push(2);
             updateDisplay();
 });
 
 document.getElementById("three")
         .addEventListener("click", () => { 
-            numberOne.push(3);
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            if(numberArray[0] === 0 && numberArray.length === 1){
+                numberArray.splice(0,numberArray.length);
+            }
+            numberArray.push(3);
             updateDisplay();
 });
 
 document.getElementById("four")
         .addEventListener("click", () => { 
-            numberOne.push(4);
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            if(numberArray[0] === 0 && numberArray.length === 1){
+                numberArray.splice(0,numberArray.length);
+            }
+            numberArray.push(4);
             updateDisplay();
 });
 
 document.getElementById("five")
         .addEventListener("click", () => { 
-            numberOne.push(5);
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            if(numberArray[0] === 0 && numberArray.length === 1){
+                numberArray.splice(0,numberArray.length);
+            }
+            numberArray.push(5);
             updateDisplay();
 });
 
 document.getElementById("six")
         .addEventListener("click", () => { 
-            numberOne.push(6);
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            if(numberArray[0] === 0 && numberArray.length === 1){
+                numberArray.splice(0,numberArray.length);
+            }
+            numberArray.push(6);
             updateDisplay();
 });
 
 document.getElementById("seven")
         .addEventListener("click", () => { 
-            numberOne.push(7);
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            if(numberArray[0] === 0 && numberArray.length === 1){
+                numberArray.splice(0,numberArray.length);
+            }
+            numberArray.push(7);
             updateDisplay();
 });
 
 document.getElementById("eight")
         .addEventListener("click", () => { 
-            numberOne.push(8);
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            if(numberArray[0] === 0 && numberArray.length === 1){
+                numberArray.splice(0,numberArray.length);
+            }
+            numberArray.push(8);
             updateDisplay();
 });
 
 document.getElementById("nine")
         .addEventListener("click", () => { 
-            numberOne.push(9);
+            if(operator === "="){
+                numberArray.splice(0,numberArray.length);
+                operator = "";
+            }
+            if(numberArray[0] === 0 && numberArray.length === 1){
+                numberArray.splice(0,numberArray.length);
+            }
+            numberArray.push(9);
             updateDisplay();
+});
+
+document.getElementById("plus")
+        .addEventListener("click", () => { 
+            if(numberArray.length !== 0)
+                {
+                    numberOne = numberArray.join('');
+                    updateDisplay();
+                    numberArray.splice(0,numberArray.length);
+                    operator = "+";
+                }
+});
+
+document.getElementById("minus")
+        .addEventListener("click", () => { 
+            if(numberArray.length !== 0)
+                {
+                    numberOne = numberArray.join('');
+                    updateDisplay();
+                    numberArray.splice(0,numberArray.length);
+                    operator = "-";
+                }
+});
+
+document.getElementById("multiply")
+        .addEventListener("click", () => { 
+            if(numberArray.length !== 0)
+                {
+                    numberOne = numberArray.join('');
+                    updateDisplay();
+                    numberArray.splice(0,numberArray.length);
+                    operator = "*";
+                }
+});
+
+document.getElementById("divide")
+        .addEventListener("click", () => { 
+            if(numberArray.length !== 0)
+                {
+                    numberOne = numberArray.join('');
+                    updateDisplay();
+                    numberArray.splice(0,numberArray.length);
+                    operator = "/";
+                }
+});
+
+document.getElementById("equals")
+        .addEventListener("click", () => { 
+            if(operator !== "" && operator !== "="  )
+            {
+                numberTwo = numberArray.join('');
+
+                numberArray.splice(0,numberArray.length);
+                numberArray.push(operate(numberOne,numberTwo,operator));
+                    
+                updateDisplay();
+                operator = "=";
+                console.log("Operator is " + operator);
+            }
+            else{
+
+            }
 });
