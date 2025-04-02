@@ -54,8 +54,11 @@ function updateDisplay(){
     if(numberArray.length === 0){
         displayValue.innerHTML = 0;
     }
-    else{
+    else if(numberArray[0] < 9999999999999){
         displayValue.innerHTML = numberArray.slice(-13).join('');
+    }
+    else{
+        displayValue.innerHTML = "Error";
     }
     
     console.log("Number array is:" + numberArray.join(''));
@@ -104,6 +107,12 @@ document.getElementById("clear")
 
             clearNumberArray();
             operator = "";
+            updateDisplay();
+});
+
+document.getElementById("backspace")
+        .addEventListener("click", () => { 
+            numberArray.pop();
             updateDisplay();
 });
 
