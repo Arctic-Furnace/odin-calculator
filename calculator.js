@@ -1,3 +1,12 @@
+let numberArray = [0];
+let numberOne;
+let numberTwo;
+let operator = "";
+let displayValue = document.getElementById("result");
+let result;
+
+
+//Main math functions
 function add(a,b){
     return +a + +b;
 }
@@ -13,11 +22,6 @@ function multiply(a,b){
 function divide(a,b){
     return +a / +b;
 }
-
-console.log("1 + 2 = " + add(1,2));
-console.log("10 - 2 = " + subtract(10,2));
-console.log("5 * 2 = " + multiply(5,2));
-console.log("9 / 3 = " + divide(9,3));
 
 function operate(numberOne,numberTwo,operator){
     if(operator === "+")
@@ -44,218 +48,163 @@ function operate(numberOne,numberTwo,operator){
     }
 }
 
-let numberArray = [0];
-let numberOne;
-let numberTwo;
-let operator = "";
-let displayValue = document.getElementById("result");
-let result;
+//Display values on the calculator screen
 
 function updateDisplay(){
     if(numberArray.length === 0){
-        document.getElementById("result").innerHTML = 0;
+        displayValue.innerHTML = 0;
     }
     else{
-        document.getElementById("result").innerHTML = numberArray.slice(-13).join('');
+        displayValue.innerHTML = numberArray.slice(-13).join('');
     }
     
     console.log("Number array is:" + numberArray.join(''));
 }
 
+function clearNumberArray(){
+    numberArray.splice(0,numberArray.length);
+}
+
+function checkForEquals(){
+    if(operator === "="){
+        clearNumberArray();
+        operator = "";
+    }
+}
+
+function checkForZero(){
+    if (numberArray[0] === 0 && numberArray.length === 1) {
+        clearNumberArray();
+    }
+}
+
+function getOperator(operatorButton) {
+    if (numberArray.length !== 0) {
+        numberOne = numberArray.join('');
+        updateDisplay();
+        clearNumberArray();
+        operator = operatorButton;
+    }
+}
+
+//Button functions
+
 document.getElementById("period")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
+            checkForEquals();
             if(!numberArray.includes('.'))
             {
                 numberArray.push('.');
-            }
-            
+            }   
             updateDisplay();
 });
 
 document.getElementById("clear")
         .addEventListener("click", () => { 
 
-            numberArray.splice(0,numberArray.length);
+            clearNumberArray();
             operator = "";
             updateDisplay();
 });
 
 document.getElementById("zero")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
-            if(numberArray[0] === 0 && numberArray.length === 1){
-                numberArray.splice(0,numberArray.length);
-            }
-                numberArray.push(0);
-                updateDisplay();
+            checkForEquals();
+            checkForZero();
+            numberArray.push(0);
+            updateDisplay();
 });
 
 document.getElementById("one")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
-            if(numberArray[0] === 0 && numberArray.length === 1){
-                numberArray.splice(0,numberArray.length);
-            }
+            checkForEquals();
+            checkForZero();
             numberArray.push(1);
             updateDisplay();
 });
 
 document.getElementById("two")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
-            if(numberArray[0] === 0 && numberArray.length === 1){
-                numberArray.splice(0,numberArray.length);
-            }
+            checkForEquals();
+            checkForZero();
             numberArray.push(2);
             updateDisplay();
 });
 
 document.getElementById("three")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
-            if(numberArray[0] === 0 && numberArray.length === 1){
-                numberArray.splice(0,numberArray.length);
-            }
+            checkForEquals();
+            checkForZero();
             numberArray.push(3);
             updateDisplay();
 });
 
 document.getElementById("four")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
-            if(numberArray[0] === 0 && numberArray.length === 1){
-                numberArray.splice(0,numberArray.length);
-            }
+            checkForEquals();
+            checkForZero();
             numberArray.push(4);
             updateDisplay();
 });
 
 document.getElementById("five")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
-            if(numberArray[0] === 0 && numberArray.length === 1){
-                numberArray.splice(0,numberArray.length);
-            }
+            checkForEquals();
+            checkForZero();
             numberArray.push(5);
             updateDisplay();
 });
 
 document.getElementById("six")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
-            if(numberArray[0] === 0 && numberArray.length === 1){
-                numberArray.splice(0,numberArray.length);
-            }
+            checkForEquals();
+            checkForZero();
             numberArray.push(6);
             updateDisplay();
 });
 
 document.getElementById("seven")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
-            if(numberArray[0] === 0 && numberArray.length === 1){
-                numberArray.splice(0,numberArray.length);
-            }
+            checkForEquals();
+            checkForZero();
             numberArray.push(7);
             updateDisplay();
 });
 
 document.getElementById("eight")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
-            if(numberArray[0] === 0 && numberArray.length === 1){
-                numberArray.splice(0,numberArray.length);
-            }
+            checkForEquals();
+            checkForZero();
             numberArray.push(8);
             updateDisplay();
 });
 
 document.getElementById("nine")
         .addEventListener("click", () => { 
-            if(operator === "="){
-                numberArray.splice(0,numberArray.length);
-                operator = "";
-            }
-            if(numberArray[0] === 0 && numberArray.length === 1){
-                numberArray.splice(0,numberArray.length);
-            }
+            checkForEquals();
+            checkForZero();
             numberArray.push(9);
             updateDisplay();
 });
 
 document.getElementById("plus")
         .addEventListener("click", () => { 
-            if(numberArray.length !== 0)
-                {
-                    numberOne = numberArray.join('');
-                    updateDisplay();
-                    numberArray.splice(0,numberArray.length);
-                    operator = "+";
-                }
+            getOperator("+");
 });
 
 document.getElementById("minus")
         .addEventListener("click", () => { 
-            if(numberArray.length !== 0)
-                {
-                    numberOne = numberArray.join('');
-                    updateDisplay();
-                    numberArray.splice(0,numberArray.length);
-                    operator = "-";
-                }
+            getOperator("-");
 });
 
 document.getElementById("multiply")
         .addEventListener("click", () => { 
-            if(numberArray.length !== 0)
-                {
-                    numberOne = numberArray.join('');
-                    updateDisplay();
-                    numberArray.splice(0,numberArray.length);
-                    operator = "*";
-                }
+            getOperator("*");
 });
 
 document.getElementById("divide")
         .addEventListener("click", () => { 
-            if(numberArray.length !== 0)
-                {
-                    numberOne = numberArray.join('');
-                    updateDisplay();
-                    numberArray.splice(0,numberArray.length);
-                    operator = "/";
-                }
+            getOperator("/");
 });
 
 document.getElementById("sign")
@@ -277,11 +226,14 @@ document.getElementById("equals")
             {
                 numberTwo = numberArray.join('');
 
-                numberArray.splice(0,numberArray.length);
+                clearNumberArray();
                 numberArray.push(operate(numberOne,numberTwo,operator));
                     
                 updateDisplay();
                 operator = "=";
-                console.log("Operator is " + operator);
             }
 });
+
+
+
+
